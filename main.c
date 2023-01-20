@@ -35,7 +35,6 @@ int main (int argc,char **argv){
   
   Tool_Bar_Box = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
 
-
   gtk_container_add(GTK_CONTAINER(MainWindow), Tool_Bar_Box);
 
   Menubar = gtk_menu_bar_new();
@@ -64,7 +63,6 @@ int main (int argc,char **argv){
   QuitMi = gtk_menu_item_new_with_label("Quit");
   ImportMi = gtk_menu_item_new_with_label("Import");
 
-
   //Attach Menu label to the Menu 
   gtk_menu_item_set_submenu(GTK_MENU_ITEM(FileMi), FileMenu);
   gtk_menu_item_set_submenu(GTK_MENU_ITEM(EditMi), EditMenu);
@@ -91,13 +89,17 @@ int main (int argc,char **argv){
   
   gtk_box_pack_start(GTK_BOX(Tool_Bar_Box), Menubar, FALSE, FALSE, 0);
 
+  //Onclick Quit
   g_signal_connect(G_OBJECT(QuitMi), "activate", G_CALLBACK(gtk_main_quit), NULL);
-  g_signal_connect(MainWindow, "destroy", G_CALLBACK(gtk_main_quit), NULL);  
   
+  //Onclick Import
+  g_signal_connect(G_OBJECT(ImportMi), "activate", G_CALLBACK(gtk_main_quit), NULL);
+    
+  g_signal_connect(MainWindow, "destroy", G_CALLBACK(gtk_main_quit), NULL);  
+ 
   gtk_widget_show_all(MainWindow); //Show Window
   
-  gtk_main();
-  /*This code enters the GTK+ main loop. From this point, the application sits and waits for events to happen.*/
+  gtk_main(); /*This code enters the GTK+ main loop. From this point, the application sits and waits for events to happen.*/
 
   return 0;
 }
