@@ -12,6 +12,27 @@
 
 #include <libswresample/swresample.h>
 
+
+static void FileChooser(){
+  GtkWidget *fc_dialog;
+  GtkFileChooser *fc;
+  char *filename;
+
+  fc_dialog = gtk_file_chooser_dialog_new("Title", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, "Abort", GTK_RESPONSE_CANCEL, "Open", GTK_RESPONSE_ACCEPT, NULL);
+
+  gtk_widget_show(fc_dialog);
+  
+  if(gtk_dialog_run(GTK_DIALOG(fc_dialog)) == GTK_RESPONSE_ACCEPT){
+     fc = GTK_FILE_CHOOSER(fc_dialog);
+     filename = gtk_file_chooser_get_filename(fc);
+     g_print("%s", filename);
+     g_free (filename);
+     gtk_widget_destroy(fc_dialog);}
+  else{
+     gtk_widget_destroy(fc_dialog);
+  }
+}
+
 int main (int argc,char **argv){
   
   GtkWidget *MainWindow;
@@ -93,13 +114,15 @@ int main (int argc,char **argv){
   g_signal_connect(G_OBJECT(QuitMi), "activate", G_CALLBACK(gtk_main_quit), NULL);
   
   //Onclick Import
-  g_signal_connect(G_OBJECT(ImportMi), "activate", G_CALLBACK(gtk_main_quit), NULL);
-    
+  g_signal_connect(G_OBJECT(ImportMi), "activate", G_CALLBACK(FileChooser), NULL);
+  
   g_signal_connect(MainWindow, "destroy", G_CALLBACK(gtk_main_quit), NULL);  
- 
+  
   gtk_widget_show_all(MainWindow); //Show Window
   
   gtk_main(); /*This code enters the GTK+ main loop. From this point, the application sits and waits for events to happen.*/
 
   return 0;
 }
+
+
