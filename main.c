@@ -406,10 +406,10 @@ static void FileChooser(){
      file_chooser = GTK_FILE_CHOOSER(FileChooserDialog);
      filepath = gtk_file_chooser_get_filename(file_chooser);
      strcat(uri,filepath);
+     gtk_widget_destroy(FileChooserDialog);
      VideoPlayerData(uri);
      //g_print("%s", filepath);
      g_free (filepath);
-     gtk_widget_destroy(FileChooserDialog);
   } else{
      gtk_widget_destroy(FileChooserDialog);
   }
