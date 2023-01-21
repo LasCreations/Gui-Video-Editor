@@ -26,6 +26,7 @@
 #endif
 
 GtkWidget *MainWindow;
+GtkWidget *MainBox;
 
 /* Structure to contain all our information, so we can pass it around */
 typedef struct _CustomData {
@@ -37,7 +38,7 @@ typedef struct _CustomData {
   gint64 duration;                /* Duration of the clip, in nanoseconds */
 } CustomData;
 
-static int VideoPlayerData(char* filepath){
+static int VideoPlayerData(char* filepath){ 
 
 }
 
@@ -85,8 +86,9 @@ int main (int argc,char **argv){
   gtk_window_maximize(GTK_WINDOW(MainWindow));   //maximize screen
   
   Tool_Bar_Box = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
+  MainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
 
-  gtk_container_add(GTK_CONTAINER(MainWindow), Tool_Bar_Box);
+  gtk_box_pack_start(GTK_BOX(MainBox), Tool_Bar_Box, FALSE, FALSE, 0);
 
   Menubar = gtk_menu_bar_new();
   
@@ -147,6 +149,8 @@ int main (int argc,char **argv){
   g_signal_connect(G_OBJECT(ImportMi), "activate", G_CALLBACK(FileChooser), NULL);
   
   g_signal_connect(MainWindow, "destroy", G_CALLBACK(gtk_main_quit), NULL);  
+
+  gtk_container_add(GTK_CONTAINER(MainWindow), MainBox);
   
   gtk_widget_show_all(MainWindow); //Show Window
   
