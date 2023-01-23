@@ -1,29 +1,30 @@
 #include "../lib/Window.h"
-Window window;
+#include "../lib/VideoPlayer.h"
+
+VideoPlayerWindow window;
 
 
 static void FileChooser(){
-  GtkWidget *FileChooserDialog = gtk_file_chooser_dialog_new("Select A File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, 
-                                                             "Abort", GTK_RESPONSE_CANCEL, "Open",
+    GtkWidget *FileChooserDialog = gtk_file_chooser_dialog_new("Select A File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, 
+                                                           "Abort", GTK_RESPONSE_CANCEL, "Open",
                                                              GTK_RESPONSE_ACCEPT, NULL);
-  
-  GtkFileChooser *file_chooser;
-  char *filepath;
-  char uri[] = "file:";
+    GtkFileChooser *file_chooser;
+    char *filepath;
+    char uri[1000] = "file:";
 
-  gtk_widget_show(FileChooserDialog);
+    gtk_widget_show(FileChooserDialog);
   
-  if(gtk_dialog_run(GTK_DIALOG(FileChooserDialog)) == GTK_RESPONSE_ACCEPT){
-     file_chooser = GTK_FILE_CHOOSER(FileChooserDialog);
-     filepath = gtk_file_chooser_get_filename(file_chooser);
-     //strcat(uri,filepath);
-	//VideoPlayerData(uri);
-     //g_print("%s", filepath);
-     g_free (filepath);
-     gtk_widget_destroy(FileChooserDialog);
-  } else{
-     gtk_widget_destroy(FileChooserDialog);
-  }
+    if(gtk_dialog_run(GTK_DIALOG(FileChooserDialog)) == GTK_RESPONSE_ACCEPT){
+	file_chooser = GTK_FILE_CHOOSER(FileChooserDialog);
+	filepath = gtk_file_chooser_get_filename(file_chooser);
+	strcat(uri,filepath);
+	VideoPlayerData(uri, &window);
+	//g_print("%s", filepath);
+	g_free (filepath);
+	gtk_widget_destroy(FileChooserDialog);
+    } else{
+	gtk_widget_destroy(FileChooserDialog);
+    }
 }
 
 

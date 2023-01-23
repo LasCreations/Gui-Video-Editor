@@ -17,11 +17,10 @@ typedef struct _Window{
 	GtkWidget *FileMenu, *EditMenu, *ClipMenu, *SequenceMenu, *GraphicsMenu, *ViewMenu, *WindowMenu, *HelpMenu;
 	GtkWidget *FileMi, *EditMi, *ClipMi, *SequenceMi, *GraphicsMi, *ViewMi, *WindowMi, *HelpMi;
 	GtkWidget *QuitMi, *ImportMi; //File Menu Items
-}Window;
+}VideoPlayerWindow;
 
 void activate (GtkApplication *app,gpointer user_data);
 static void FileChooser();
-
 
 
 
