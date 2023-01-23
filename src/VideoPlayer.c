@@ -11,13 +11,13 @@ static void realize_cb (GtkWidget *widget, CustomData *data) {
     g_error ("Couldn't create native window needed for GstVideoOverlay!");
 
   /* Retrieve window handler from GDK */
-#if defined (GDK_WINDOWING_WIN32)
-  window_handle = (guintptr)GDK_WINDOW_HWND (window);
-#elif defined (GDK_WINDOWING_QUARTZ)
-  window_handle = gdk_quartz_window_get_nsview (window);
-#elif defined (GDK_WINDOWING_X11)
-  window_handle = GDK_WINDOW_XID (window);
-#endif
+  #if defined (GDK_WINDOWING_WIN32)
+    window_handle = (guintptr)GDK_WINDOW_HWND (window);
+  #elif defined (GDK_WINDOWING_QUARTZ)
+    window_handle = gdk_quartz_window_get_nsview (window);
+  #elif defined (GDK_WINDOWING_X11)
+    window_handle = GDK_WINDOW_XID (window);
+  #endif
   /* Pass it to playbin, which implements VideoOverlay and will forward it to the video sink */
   gst_video_overlay_set_window_handle (GST_VIDEO_OVERLAY (data->playbin), window_handle);
 }
@@ -297,7 +297,8 @@ int VideoPlayerData(char path[], VideoPlayerWindow *MainWindow){
   CustomData data;
   GstStateChangeReturn ret;
   GstBus *bus;
-  
+ 
+
   /* Initialize our data structure */
   memset (&data, 0, sizeof (data));
   data.duration = GST_CLOCK_TIME_NONE;
@@ -310,7 +311,7 @@ int VideoPlayerData(char path[], VideoPlayerWindow *MainWindow){
     return -1;
   }
   
-  //g_print("%s", uriPath);
+  //g_print("%s", path);
   
   /* Set the URI to play */
   g_object_set (data.playbin, "uri", path, NULL);
@@ -346,5 +347,4 @@ int VideoPlayerData(char path[], VideoPlayerWindow *MainWindow){
   /* Free resources */
   gst_element_set_state (data.playbin, GST_STATE_NULL);
   gst_object_unref (data.playbin);
-
 }

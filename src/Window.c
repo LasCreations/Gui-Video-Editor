@@ -108,6 +108,12 @@ void activate (GtkApplication* app,gpointer user_data){
 
 int main(int argc, char **argv){
 	
+	/* Initialize GStreamer */
+	gst_init (&argc, &argv);
+ 
+	/* Initialize GTK */
+	gtk_init (&argc, &argv);
+
 	GtkApplication *app;
 	
 	int status;
