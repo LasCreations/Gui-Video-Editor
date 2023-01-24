@@ -6,7 +6,7 @@
 
 
 ### Task List
-[x] Create a Window
-[x] Import A Video
+- [x] Create a Window
+- [x] Import A Video
 
 
