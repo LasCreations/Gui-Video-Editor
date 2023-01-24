@@ -1,4 +1,4 @@
-# Video Editor
+# <center>Video Editor </center>
 
 ## Recquired Packages
 
