@@ -8,7 +8,6 @@
 
 #include <gtk/gtk.h>
 
-
 typedef struct _Window{
 	GtkWidget *MainWindow;
 	GtkWidget *MainBox;
@@ -20,13 +19,7 @@ typedef struct _Window{
 }VideoPlayerWindow;
 
 void activate (GtkApplication *app,gpointer user_data);
+
 static void FileChooser();
 
-
-
-
-
-
 #endif
-
-

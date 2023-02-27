@@ -3,7 +3,6 @@
 
 #include "Window.h"
 
-
 #include <gst/gst.h>
 #include <gst/video/videooverlay.h>
 
@@ -16,7 +15,6 @@
 #include <gdk/gdkquartz.h>
 #endif
 
-
 /* Structure to contain all our information, so we can pass it around */
 typedef struct _CustomData {
   GstElement *playbin;           /* Our one and only pipeline */
@@ -28,6 +26,5 @@ typedef struct _CustomData {
 } CustomData;
 
 int VideoPlayerData(char[], VideoPlayerWindow*);
-
 
 #endif
