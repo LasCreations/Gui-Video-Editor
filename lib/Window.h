@@ -1,25 +1,19 @@
-#ifndef _WINDOW_H_
-#define _WINDOW_H_
-
-
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include <gtk/gtk.h>
+#include <stdio.h>
 
-typedef struct _Window{
-	GtkWidget *MainWindow;
-	GtkWidget *MainBox;
-	GtkWidget *Tool_Bar_Box;
-	GtkWidget *Menubar;
-	GtkWidget *FileMenu, *EditMenu, *ClipMenu, *SequenceMenu, *GraphicsMenu, *ViewMenu, *WindowMenu, *HelpMenu;
-	GtkWidget *FileMi, *EditMi, *ClipMi, *SequenceMi, *GraphicsMi, *ViewMi, *WindowMi, *HelpMi;
-	GtkWidget *QuitMi, *ImportMi; //File Menu Items
-}VideoPlayerWindow;
+class Window{
+	private:
 
-void activate (GtkApplication *app,gpointer user_data);
-
-static void FileChooser();
+	public:
+		Window(){
+			
+		}
+		
+		void activate(GtkApplication* app,gpointer user_data);
+		int Create(int argc, char **argv);
+};
 
 #endif

@@ -4,21 +4,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "-O3 -Wall")
 project(main C CXX)
 
-file(GLOB CPP_SOURCE
-"${PROJECT_SOURCE_DIR}/src/*.c"
+file(GLOB CPP_SOURCE 
+	"${PROJECT_SOURCE_DIR}/src/*.c"
+	"${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
 
-
 FIND_PACKAGE(PkgConfig REQUIRED)
+FIND_PACKAGE(SDL2 REQUIRED)
 
-PKG_CHECK_MODULES(GTK REQUIRED gtk+-3.0 gstreamer-video-1.0 gstreamer-1.0 gstreamer-audio-1.0)
+#PKG_CHECK_MODULES(GTK REQUIRED gtk+-3.0 gstreamer-video-1.0 gstreamer-1.0 gstreamer-audio-1.0)
+
+PKG_CHECK_MODULES(GTK REQUIRED gtk+-3.0)
+pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0 gstreamer-video-1.0 gstreamer-audio-1.0)
 
 add_executable(main ${CPP_SOURCE})
 
-include_directories(${PROJECT_SOURCE_DIR}/lib ${GTK_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR}/lib ${GTK_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ${GLIB_INCLUDE_DIRS} ${GSTREAMER_INCLUDE_DIRS})
 
 ADD_DEFINITIONS(${GTK_CFLAGS_OTHER})
 
 LINK_DIRECTORIES(${GTK_LIBRARY_DIRS})
+LINK_DIRECTORIES(${SDL2_INCLUDE_DIRS})
+link_directories(${GLIB_LIBRARY_DIRS} ${GSTREAMER_LIBRARY_DIRS})
 
-target_link_libraries(main -lavutil -lswresample ${GTK_LIBRARIES})
+
+target_link_libraries(main -lavutil -lswresample -lm ${GTK_LIBRARIES} ${SDL2_LIBRARIES} ${GSTREAMER_LIBRARIES})  
