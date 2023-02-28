@@ -2,4 +2,8 @@
 #define AUDIO_H
 
 
+typedef struct Audio{
+
+}Audio;
+
 #endif

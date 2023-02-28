@@ -1,19 +1,14 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <gtk/gtk.h>
-#include <stdio.h>
+#include "Widget.h"
 
-class Window{
-	private:
+void Destroy(GtkWidget*,gpointer);
 
-	public:
-		Window(){
-			
-		}
-		
-		void activate(GtkApplication* app,gpointer user_data);
-		int Create(int argc, char **argv);
-};
+void Construct(Widget*);
+
+void Create(int,char**);
+
+void FileChooser();
 
 #endif
