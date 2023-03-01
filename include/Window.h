@@ -13,4 +13,9 @@ void Create(int,char**);
 
 void FileChooser(GtkWidget*, WindowData*);
 
+void NewProject(GtkWidget*, WindowData*);
+
+void create_button_clicked(GtkWidget*, WindowData*);
+
+
 #endif

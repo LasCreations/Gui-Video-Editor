@@ -12,6 +12,7 @@ void Destroy(GtkWidget *widget, gpointer data){
 
 void Create(int argc, char **argv){
 
+	
 	WindowData *window = malloc(sizeof(struct WindowData));
 
 	/* Initialize GTK */
@@ -25,7 +26,7 @@ void Create(int argc, char **argv){
 	gtk_window_set_title(GTK_WINDOW(window->MainWindow), "Video-Editor");
 
 	gtk_window_maximize(GTK_WINDOW(window->MainWindow));
-	
+
 	Construct(window);
 	
 	/* Connect the main window to the destroy */
@@ -48,9 +49,6 @@ void Construct(WindowData *window){
 	
 	//Add Tool Bar
 	gtk_box_pack_start(GTK_BOX(window->MainBox), window->Tool_Bar_Box, FALSE, FALSE, 0);	
-	
-	//Add Video Screen
-	gtk_box_pack_start(GTK_BOX(window->MainBox), window->VideoBox, FALSE, FALSE, 0);	
 
 	window->Menubar = gtk_menu_bar_new();
 
@@ -75,8 +73,12 @@ void Construct(WindowData *window){
   	window->HelpMi = gtk_menu_item_new_with_label("Help");
 
   	//Submenu
-  	window->QuitMi = gtk_menu_item_new_with_label("Quit");
+  	window->QuitMi = gtk_menu_item_new_with_label("Exit");
   	window->ImportMi = gtk_menu_item_new_with_label("Import");
+  	window->ExportMi = gtk_menu_item_new_with_label("Export");
+  	window->SaveMi = gtk_menu_item_new_with_label("Save");
+  	window->SaveAsMi = gtk_menu_item_new_with_label("Save As");
+  	window->NewMi = gtk_menu_item_new_with_label("New");
 
   	//Attach Menu label to the Menu 
   	gtk_menu_item_set_submenu(GTK_MENU_ITEM(window->FileMi),window->FileMenu);
@@ -89,7 +91,11 @@ void Construct(WindowData *window){
   	gtk_menu_item_set_submenu(GTK_MENU_ITEM(window->HelpMi),window->HelpMenu);
 
   	//Attach Menu items
+  	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->NewMi);
+  	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->SaveMi);
+  	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->SaveAsMi);
   	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->ImportMi);
+  	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->ExportMi);
   	gtk_menu_shell_append(GTK_MENU_SHELL(window->FileMenu),window->QuitMi);
 	
   	//Attach to Menu bar
@@ -109,25 +115,50 @@ void Construct(WindowData *window){
 
   	//Onclick Import
   	g_signal_connect(G_OBJECT(window->ImportMi), "activate", G_CALLBACK(FileChooser), window);
+  	g_signal_connect(G_OBJECT(window->NewMi), "activate", G_CALLBACK(NewProject), window);
+}
+
+void NewProject(GtkWidget *menuItem,WindowData *window){
+	window->NewProjectBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
+	gtk_box_pack_start(GTK_BOX(window->MainBox), window->NewProjectBox, FALSE, FALSE, 0);	
+	window->ProjectName =  gtk_entry_new();	
+	window->Create = gtk_button_new_with_label("Create");
+	gtk_box_pack_start(GTK_BOX(window->NewProjectBox), window->ProjectName, FALSE, FALSE, 0);	
+	gtk_box_pack_start(GTK_BOX(window->NewProjectBox), window->Create, FALSE, FALSE, 0);
+	g_signal_connect(window->Create,"clicked",G_CALLBACK(create_button_clicked),window);
+	gtk_widget_show_all(window->NewProjectBox);
+}
+
+void create_button_clicked(GtkWidget *menuItem,WindowData *window){
+	const gchar* FolderName = gtk_entry_get_text(GTK_ENTRY(window->ProjectName));
+	char projectFolder[1000] ="../bin/Projects/"; 
+	strcat(projectFolder,FolderName);
+
+	//Check if error occured
+	if(mkdir(projectFolder, S_IRWXU | S_IRWXG | S_IRWXO) == -1){
+		//Error Creating folder
+		perror("Error");
+		if(errno == EEXIST){
+			//Folder Already Exists
+			//Make a default Folder
+			mkdir("../bin/Projects/DefaultProject", S_IRWXU | S_IRWXG | S_IRWXO);
+			g_print("Created a folder called Default Folder");
+		}
+	}
+	gtk_widget_destroy(window->NewProjectBox);
 }
 
 void FileChooser(GtkWidget *menuItem,WindowData *window){
 	GtkWidget *FileChooserDialog = gtk_file_chooser_dialog_new("Select A File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, 
 							 "Abort", GTK_RESPONSE_CANCEL, "Open",GTK_RESPONSE_ACCEPT, NULL);
 	GtkFileChooser *file_chooser;
-
 	char uri[1000]="file://";
 	char *filepath;
-
-
 	gtk_widget_show(FileChooserDialog);
-	
 	if(gtk_dialog_run(GTK_DIALOG(FileChooserDialog)) == GTK_RESPONSE_ACCEPT){
 		file_chooser = GTK_FILE_CHOOSER(FileChooserDialog);
 		filepath = gtk_file_chooser_get_filename(file_chooser);
-		
 		gtk_widget_destroy(FileChooserDialog);
-		
 		strcat(uri,filepath);
 		g_print("%s\n", uri);	
 		VideoMain(window,uri);	

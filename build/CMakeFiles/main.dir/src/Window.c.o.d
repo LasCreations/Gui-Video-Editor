@@ -865,5 +865,8 @@ CMakeFiles/main.dir/src/Window.c.o: \
  /usr/include/gtk-3.0/gtk/deprecated/gtkvscrollbar.h \
  /usr/include/gtk-3.0/gtk/deprecated/gtkvseparator.h \
  /usr/include/gtk-3.0/gtk/gtk-autocleanups.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
  /home/lascelle/Projects/Video-Editor/src/../include/../include/Video.h \
  /home/lascelle/Projects/Video-Editor/src/../include/../include/Widget.h

@@ -16,15 +16,39 @@
 
 #include <gtk/gtk.h>
 
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+//Error Functions
+#include <errno.h>
+#include <asm-generic/errno-base.h>                                                                                                                   
+
+
 #include <string.h>
 #include <stdlib.h>
 
+extern int errno;
+
 typedef struct WindowData{
+	//The main window of the application
 	GtkWidget *MainWindow; 
-	GtkWidget *MainBox;
+	
+	//Sections of the application
+	GtkWidget *MainBox; 
+	GtkWidget *NewProjectBox;
 	GtkWidget *VideoBox;
+
+
+	//Buttons
+	GtkWidget *Create;
+	
+	//Entry
+	GtkWidget *ProjectName;
+
 	GtkWidget *Tool_Bar_Box; 	
+	
 	GtkWidget *Menubar;  	
+	
 	GtkWidget *FileMenu;   
 	GtkWidget *EditMenu; 
 	GtkWidget *ClipMenu; 
@@ -33,6 +57,7 @@ typedef struct WindowData{
 	GtkWidget *ViewMenu;   
 	GtkWidget *WindowMenu;  
 	GtkWidget *HelpMenu;   
+
 	GtkWidget *FileMi;   
 	GtkWidget *EditMi;   
 	GtkWidget *ClipMi;   
@@ -41,8 +66,14 @@ typedef struct WindowData{
 	GtkWidget *ViewMi;  
 	GtkWidget *WindowMi;  
 	GtkWidget *HelpMi;
+
+	//Under File Tab
 	GtkWidget *QuitMi;  
-	GtkWidget *ImportMi; 
+	GtkWidget *ImportMi;
+	GtkWidget *ExportMi;
+	GtkWidget *SaveMi;
+	GtkWidget *SaveAsMi;
+	GtkWidget *NewMi;
 }WindowData;
 
 /* Structure to contain all our information, so we can pass it around */
