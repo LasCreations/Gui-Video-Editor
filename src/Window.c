@@ -209,8 +209,8 @@ void FileChooser(GtkWidget *menuItem,WindowData *window){
 
 	//main_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	//g_signal_connect (G_OBJECT (main_window), "delete-event", G_CALLBACK (delete_event_cb), data);
-	g_signal_connect (G_OBJECT (window->MainWindow), "delete-event", G_CALLBACK (delete_event_cb), data);
-	//g_signal_connect (G_OBJECT (window->VideoBox), "delete-event", G_CALLBACK (delete_event_cb), data);
+	//g_signal_connect (G_OBJECT (window->MainWindow), "delete-event", G_CALLBACK (delete_event_cb), data);
+	g_signal_connect (G_OBJECT (window->VideoBox), "delete-event", G_CALLBACK (delete_event_cb), data);
 
 	video_window = gtk_drawing_area_new ();
 	gtk_widget_set_double_buffered (video_window, FALSE);
@@ -251,11 +251,11 @@ void FileChooser(GtkWidget *menuItem,WindowData *window){
 
 	//gtk_box_pack_start(GTK_BOX(window->VideoBox), main_box, FALSE, FALSE, 0);	
 	
-	//gtk_box_pack_start(GTK_BOX(window->VideoBox), main_box, FALSE, FALSE, 0);	
-	gtk_container_add (GTK_CONTAINER (window->VideoBox), main_box);
+	gtk_box_pack_start(GTK_BOX(window->VideoBox), main_box, TRUE, TRUE, 0);	
+	//gtk_container_add (GTK_CONTAINER (window->VideoBox), main_box);
 	//gtk_window_set_default_size (GTK_WINDOW (main_window), 640, 480);
 
-	gtk_widget_show_all (window->VideoBox);
+	gtk_widget_show_all (window->MainWindow);
 }
 
  gboolean refresh_ui (CustomData *data) {
@@ -466,6 +466,8 @@ int VideoMain(WindowData *window, char *filepath){
 
 	/* Register a function that GLib will call every second */
 	g_timeout_add_seconds (1, (GSourceFunc)refresh_ui, &data);
+
+	gtk_main();
 
 	/* Free resources */
 	gst_element_set_state (data.playbin, GST_STATE_NULL);
