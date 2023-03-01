@@ -4,10 +4,10 @@
  * @details 
 */
 
-#include "../lib/Window.h"
+#include "../include/Window.h"
 
 void Destroy(GtkWidget *widget, gpointer data){
-    gtk_main_quit();
+	gtk_main_quit();
 }
 
 void Create(int argc, char **argv){
@@ -19,7 +19,6 @@ void Create(int argc, char **argv){
 
 	/* Initialize GStreamer */
 	gst_init(&argc, &argv);
-
 
 	window->MainWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
@@ -39,8 +38,8 @@ void Create(int argc, char **argv){
 
 void Construct(WindowData *window){
 		
+	//Making Boxes to store information
 	window->Tool_Bar_Box = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
-	
 	window->MainBox= gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
 	window->VideoBox= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding
 	
@@ -53,9 +52,6 @@ void Construct(WindowData *window){
 	//Add Video Screen
 	gtk_box_pack_start(GTK_BOX(window->MainBox), window->VideoBox, FALSE, FALSE, 0);	
 
-	//button = gtk_button_new_with_label ("gtk_box_pack");
-	//gtk_box_pack_start(GTK_BOX(VideoBox),button, FALSE, FALSE, 0);
-	
 	window->Menubar = gtk_menu_bar_new();
 
 	//Menu
@@ -115,32 +111,27 @@ void Construct(WindowData *window){
   	g_signal_connect(G_OBJECT(window->ImportMi), "activate", G_CALLBACK(FileChooser), window);
 }
 
-
-
-//void FileChooser(GtkWidget *button, gpointer user_data){
 void FileChooser(GtkWidget *menuItem,WindowData *window){
 	GtkWidget *FileChooserDialog = gtk_file_chooser_dialog_new("Select A File", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, 
 							 "Abort", GTK_RESPONSE_CANCEL, "Open",GTK_RESPONSE_ACCEPT, NULL);
 	GtkFileChooser *file_chooser;
 
+	char uri[1000]="file://";
 	char *filepath;
-	char uri[1000] = "file:";
-	
+
+
 	gtk_widget_show(FileChooserDialog);
 	
 	if(gtk_dialog_run(GTK_DIALOG(FileChooserDialog)) == GTK_RESPONSE_ACCEPT){
-		
 		file_chooser = GTK_FILE_CHOOSER(FileChooserDialog);
 		filepath = gtk_file_chooser_get_filename(file_chooser);
+		
 		gtk_widget_destroy(FileChooserDialog);
 		
 		strcat(uri,filepath);
-		g_print("%s", filepath);
-		
-		VideoMain(window,filepath);
-		g_free (filepath);
+		g_print("%s\n", uri);	
+		VideoMain(window,uri);	
 	}else{
 	    gtk_widget_destroy(FileChooserDialog);
 	}
 }
-

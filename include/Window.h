@@ -2,8 +2,8 @@
 #define WINDOW_H
 
 
-#include "../lib/Widget.h"
-#include "../lib/Video.h"
+#include "../include/Widget.h"
+#include "../include/Video.h"
 
 void Destroy(GtkWidget*,gpointer);
 

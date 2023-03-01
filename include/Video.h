@@ -6,7 +6,7 @@
 /*The Video Function
  * Take the path of the video, The video screen and the window screen
 */
-int VideoMain(WindowData *window, char *filepath);
+int VideoMain(WindowData *window, char filepath[]);
 
 /* This function is called when the GUI toolkit creates the physical window that will hold the video.
  * At this point we can retrieve its handler (which has a different meaning depending on the windowing system)

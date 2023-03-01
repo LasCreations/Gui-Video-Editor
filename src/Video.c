@@ -1,5 +1,5 @@
 
-#include "../lib/Video.h"
+#include "../include/Video.h"
 
 
  void realize_cb (GtkWidget *widget, CustomData *data) {
@@ -68,7 +68,7 @@
 	//main_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	//g_signal_connect (G_OBJECT (main_window), "delete-event", G_CALLBACK (delete_event_cb), data);
 	//g_signal_connect (G_OBJECT (window->MainWindow), "delete-event", G_CALLBACK (delete_event_cb), data);
-	g_signal_connect (G_OBJECT (window->VideoBox), "delete-event", G_CALLBACK (delete_event_cb), data);
+	g_signal_connect (G_OBJECT (window->MainWindow), "delete-event", G_CALLBACK (delete_event_cb), data);
 
 	video_window = gtk_drawing_area_new ();
 	gtk_widget_set_double_buffered (video_window, FALSE);
@@ -277,7 +277,7 @@
 	}
 }
 
-int VideoMain(WindowData *window, char *filepath){
+int VideoMain(WindowData *window, char filepath[]){
 	CustomData data;
 	GstStateChangeReturn ret;
 	GstBus *bus;
@@ -295,7 +295,7 @@ int VideoMain(WindowData *window, char *filepath){
 	}
 
 	/* Set the URI to play */
-	g_object_set (data.playbin, "uri", "https://www.freedesktop.org/software/gstreamer-sdk/data/media/sintel_trailer-480p.webm", NULL);
+	g_object_set (data.playbin, "uri", filepath, NULL);
 
 	/* Connect to interesting signals in playbin */
 	g_signal_connect (G_OBJECT (data.playbin), "video-tags-changed", (GCallback) tags_cb, &data);
