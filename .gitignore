@@ -1,4 +1,5 @@
 bin/CMakeCache.txt  
 bin/CMakeFiles
 bin/cmake_install.cmake  
-bin/main  
+bin/MFF 
+bin/install_manifest.txt
