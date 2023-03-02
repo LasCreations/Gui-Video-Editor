@@ -131,7 +131,7 @@ void NewProject(GtkWidget *menuItem,WindowData *window){
 
 void create_button_clicked(GtkWidget *menuItem,WindowData *window){
 	const gchar* FolderName = gtk_entry_get_text(GTK_ENTRY(window->ProjectName));
-	char projectFolder[1000] ="../bin/Projects/"; 
+	char projectFolder[1000] ="../projects/"; 
 	strcat(projectFolder,FolderName);
 
 	//Check if error occured
@@ -141,7 +141,6 @@ void create_button_clicked(GtkWidget *menuItem,WindowData *window){
 		if(errno == EEXIST){
 			//Folder Already Exists
 			//Make a default Folder
-			mkdir("../bin/Projects/DefaultProject", S_IRWXU | S_IRWXG | S_IRWXO);
 			g_print("Created a folder called Default Folder");
 		}
 	}
