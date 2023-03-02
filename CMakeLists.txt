@@ -11,9 +11,20 @@ file(GLOB CPP_SOURCE
 
 FIND_PACKAGE(PkgConfig REQUIRED)
 FIND_PACKAGE(SDL2 REQUIRED)
-#find_package(LIBAV REQUIRED)
 
-#PKG_CHECK_MODULES(GTK REQUIRED gtk+-3.0 gstreamer-video-1.0 gstreamer-1.0 gstreamer-audio-1.0)
+find_path(AVCODEC_INCLUDE_DIR libavcodec/avcodec.h)
+find_library(AVCODEC_LIBRARY avcodec)
+
+find_path(AVFORMAT_INCLUDE_DIR libavformat/avformat.h)
+find_library(AVFORMAT_LIBRARY avformat)
+
+find_path(AVUTIL_INCLUDE_DIR libavutil/avutil.h)
+find_library(AVUTIL_LIBRARY avutil)
+
+find_path(AVDEVICE_INCLUDE_DIR libavdevice/avdevice.h)
+find_library(AVDEVICE_LIBRARY avdevice)
+
+
 
 PKG_CHECK_MODULES(GTK REQUIRED gtk+-3.0)
 pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0 gstreamer-video-1.0 gstreamer-audio-1.0)
@@ -33,5 +44,6 @@ LINK_DIRECTORIES(${GTK_LIBRARY_DIRS})
 LINK_DIRECTORIES(${SDL2_INCLUDE_DIRS})
 link_directories(${GLIB_LIBRARY_DIRS} ${GSTREAMER_LIBRARY_DIRS})
 
-
-target_link_libraries(main -lavutil -lswresample -lm ${GTK_LIBRARIES} ${SDL2_LIBRARIES} ${GSTREAMER_LIBRARIES})  
+target_include_directories(main PRIVATE ${AVCODEC_INCLUDE_DIR} ${AVFORMAT_INCLUDE_DIR} ${AVUTIL_INCLUDE_DIR} ${AVDEVICE_INCLUDE_DIR})
+target_link_libraries(main PRIVATE ${GTK_LIBRARIES} ${SDL2_LIBRARIES} ${GSTREAMER_LIBRARIES} ${AVCODEC_LIBRARY} ${AVFORMAT_LIBRARY} ${AVUTIL_LIBRARY} ${AVDEVICE_LIBRARY})  
+#target_link_libraries(main -lavutil -lswresample -lm ${GTK_LIBRARIES} ${SDL2_LIBRARIES} ${GSTREAMER_LIBRARIES})  

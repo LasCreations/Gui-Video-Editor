@@ -125,6 +125,14 @@ main: CMakeFiles/main.dir/src/Window.c.o
 main: CMakeFiles/main.dir/src/main.c.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/lib/x86_64-linux-gnu/libSDL2.so
+main: /usr/lib/x86_64-linux-gnu/libavcodec.so
+main: /usr/lib/x86_64-linux-gnu/libavformat.so
+main: /usr/lib/x86_64-linux-gnu/libavutil.so
+main: /usr/lib/x86_64-linux-gnu/libavdevice.so
+main: /usr/lib/x86_64-linux-gnu/libavcodec.so
+main: /usr/lib/x86_64-linux-gnu/libavformat.so
+main: /usr/lib/x86_64-linux-gnu/libavutil.so
+main: /usr/lib/x86_64-linux-gnu/libavdevice.so
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lascelle/Projects/Video-Editor/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
