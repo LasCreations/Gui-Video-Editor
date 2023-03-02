@@ -15,7 +15,7 @@
 #include <stdbool.h>
 
 
-void Data(char*);
+char* GetData(char*);
 
 
 

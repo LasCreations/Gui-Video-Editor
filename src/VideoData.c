@@ -1,7 +1,8 @@
 
 #include "../include/VideoData.h"
 
-void Data(char *filename){
+
+char *GetData(char *filename){
 	AVFormatContext *fmt_ctx = NULL;
 	int ret;
 	//char *filename = "/home/lascelle/Videos/Sample2.mp4";
@@ -18,10 +19,11 @@ void Data(char *filename){
 	// loop streams and dump info
 	for (int i = 0; i < fmt_ctx->nb_streams; i++)
 	{
-		printf("it was print here");
+		//printf("it was print here");
 		av_dump_format(fmt_ctx, i, filename, false);		
 	}
 
 	// close format context
 	avformat_close_input(&fmt_ctx);
+	return NULL;
 }

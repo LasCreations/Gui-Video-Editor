@@ -37,6 +37,7 @@ typedef struct WindowData{
 	GtkWidget *MainBox; 
 	GtkWidget *NewProjectBox;
 	GtkWidget *VideoBox;
+	GtkWidget *VideoInfo;
 
 
 	//Buttons

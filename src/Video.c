@@ -282,10 +282,15 @@ int VideoMain(WindowData *window, char filepath[]){
 	GstStateChangeReturn ret;
 	GstBus *bus;
 	
-	Data(filepath);
 
+	window->VideoBox= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding
+	window->VideoInfo= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding
+	//
 	//Add Video Screen
 	gtk_box_pack_start(GTK_BOX(window->MainBox), window->VideoBox, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(window->VideoBox), window->VideoInfo, FALSE, FALSE, 0);
+	
+	GtkWidget *dataFromVideo = gtk_label_new(GetData(filepath));	
 
 	/* Initialize our data structure */
 	memset (&data, 0, sizeof (data));
@@ -337,4 +342,3 @@ int VideoMain(WindowData *window, char filepath[]){
 	gst_object_unref (data.playbin);
 	return 0;
 }
-

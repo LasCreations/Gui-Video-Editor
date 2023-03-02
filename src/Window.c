@@ -42,7 +42,7 @@ void Construct(WindowData *window){
 	//Making Boxes to store information
 	window->Tool_Bar_Box = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
 	window->MainBox= gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
-	window->VideoBox= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding
+	
 	
 	//Add Container to Screen
 	gtk_container_add(GTK_CONTAINER(window->MainWindow), window->MainBox);

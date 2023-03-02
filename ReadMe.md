@@ -14,11 +14,7 @@ In the main directory run command
 Go into the build directory and run command make
 To run program ./main
 
-## How To Build Using GCC
-- gcc audio.c -o main -Wall `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0` `pkg-config --cflags --libs gstreamer-video-1.0 gstreamer-1.0 gstreamer-audio-1.0` `sdl2-config --cflags --libs` -lavutil -lswresample -lm
-
 ## Directory Structure
-
 
 ## FFmpeg Libraries
 - libavcodec           <-- encoding/decoding library
@@ -35,3 +31,5 @@ To run program ./main
 - [x] Create a Window
 - [x] Create Project Folder
 - [x] Import A Video
+- [x] Get Video Data
+
