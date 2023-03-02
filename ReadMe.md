@@ -21,14 +21,14 @@ To run program ./main
 
 
 ## FFmpeg Libraries
-libavcodec           <-- encoding/decoding library
-libavfilter          <-- graph-based frame editing library
-libavformat          <-- I/O and muxing/demuxing library
-libavdevice          <-- special devices muxing/demuxing library
-libavutil            <-- common utility library
-libswresample        <-- audio resampling, format conversion and mixing
-libpostproc          <-- post processing library
-libswscale           <-- color conversion and scaling library
+- libavcodec           <-- encoding/decoding library
+- libavfilter          <-- graph-based frame editing library
+- libavformat          <-- I/O and muxing/demuxing library
+- libavdevice          <-- special devices muxing/demuxing library
+- libavutil            <-- common utility library
+- libswresample        <-- audio resampling, format conversion and mixing
+- libpostproc          <-- post processing library
+- libswscale           <-- color conversion and scaling library
 
 
 ### Task List
