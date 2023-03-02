@@ -3,6 +3,8 @@
 
 #include "Widget.h"
 
+#include "VideoData.h"
+
 /*The Video Function
  * Take the path of the video, The video screen and the window screen
 */

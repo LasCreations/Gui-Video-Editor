@@ -281,6 +281,8 @@ int VideoMain(WindowData *window, char filepath[]){
 	CustomData data;
 	GstStateChangeReturn ret;
 	GstBus *bus;
+	
+	Data(filepath);
 
 	//Add Video Screen
 	gtk_box_pack_start(GTK_BOX(window->MainBox), window->VideoBox, FALSE, FALSE, 0);

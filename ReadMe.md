@@ -1,7 +1,7 @@
 # Video Editor
 
 ## Recquired Packages
-- libavcodec
+- FFmpeg Libraries 
 - GStreamer
 - Gtk/Gtk3+
 - SDL2

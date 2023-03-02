@@ -153,6 +153,30 @@ src/Video.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Video.c.s
 .PHONY : src/Video.c.s
 
+src/VideoData.o: src/VideoData.c.o
+.PHONY : src/VideoData.o
+
+# target to build an object file
+src/VideoData.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.o
+.PHONY : src/VideoData.c.o
+
+src/VideoData.i: src/VideoData.c.i
+.PHONY : src/VideoData.i
+
+# target to preprocess a source file
+src/VideoData.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.i
+.PHONY : src/VideoData.c.i
+
+src/VideoData.s: src/VideoData.c.s
+.PHONY : src/VideoData.s
+
+# target to generate assembly for a file
+src/VideoData.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.s
+.PHONY : src/VideoData.c.s
+
 src/Window.o: src/Window.c.o
 .PHONY : src/Window.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... src/Video.o"
 	@echo "... src/Video.i"
 	@echo "... src/Video.s"
+	@echo "... src/VideoData.o"
+	@echo "... src/VideoData.i"
+	@echo "... src/VideoData.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
