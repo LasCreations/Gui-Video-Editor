@@ -1,3 +1,0 @@
-/home/lascelle/Projects/Video-Editor/build/CMakeFiles/main.dir
-/home/lascelle/Projects/Video-Editor/build/CMakeFiles/edit_cache.dir
-/home/lascelle/Projects/Video-Editor/build/CMakeFiles/rebuild_cache.dir
