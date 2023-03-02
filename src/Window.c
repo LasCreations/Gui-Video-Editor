@@ -119,14 +119,28 @@ void Construct(WindowData *window){
 }
 
 void NewProject(GtkWidget *menuItem,WindowData *window){
-	window->NewProjectBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); //Set the box Vertically ... 10 is used for padding
+	window->NewProjectBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); 
 	gtk_box_pack_start(GTK_BOX(window->MainBox), window->NewProjectBox, FALSE, FALSE, 0);	
+	window->NewProjectButtonBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10);
 	window->ProjectName =  gtk_entry_new();	
 	window->Create = gtk_button_new_with_label("Create");
+	window->Cancel = gtk_button_new_with_label("Cancel");
+
 	gtk_box_pack_start(GTK_BOX(window->NewProjectBox), window->ProjectName, FALSE, FALSE, 0);	
-	gtk_box_pack_start(GTK_BOX(window->NewProjectBox), window->Create, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(window->NewProjectBox), window->NewProjectButtonBox, FALSE, FALSE, 0);	
+
+
+	gtk_box_pack_start(GTK_BOX(window->NewProjectButtonBox), window->Create, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(window->NewProjectButtonBox), window->Cancel, FALSE, FALSE, 0);
+	
 	g_signal_connect(window->Create,"clicked",G_CALLBACK(create_button_clicked),window);
+	g_signal_connect(window->Cancel,"clicked",G_CALLBACK(cancel_button_clicked),window);
 	gtk_widget_show_all(window->NewProjectBox);
+}
+
+
+void cancel_button_clicked(GtkWidget *menuItem,WindowData *window){
+	gtk_widget_destroy(window->NewProjectBox);
 }
 
 void create_button_clicked(GtkWidget *menuItem,WindowData *window){

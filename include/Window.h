@@ -17,5 +17,7 @@ void NewProject(GtkWidget*, WindowData*);
 
 void create_button_clicked(GtkWidget*, WindowData*);
 
+void cancel_button_clicked(GtkWidget*, WindowData*);
+
 
 #endif

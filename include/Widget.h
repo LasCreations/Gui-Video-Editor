@@ -35,13 +35,16 @@ typedef struct WindowData{
 	
 	//Sections of the application
 	GtkWidget *MainBox; 
+	
 	GtkWidget *NewProjectBox;
 	GtkWidget *VideoBox;
 	GtkWidget *VideoInfo;
 
+	GtkWidget *NewProjectButtonBox;
 
 	//Buttons
 	GtkWidget *Create;
+	GtkWidget *Cancel;
 	
 	//Entry
 	GtkWidget *ProjectName;

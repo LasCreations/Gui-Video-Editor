@@ -9,10 +9,6 @@
 ## How To Build Using Cmake
 In the main directory run command
 - cmake -S . -B bin/
-Go into the build directory and run command
-- make
-To run program
-- ./main
 
 ## Directory Structure
 

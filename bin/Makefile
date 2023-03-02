@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lascelle/Projects/Video-Editor/bin/CMakeFiles /home/lascelle/Projects/Video-Editor/bin//CMakeFiles/progress.marks
@@ -117,24 +162,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named MFF
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+MFF: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MFF
+.PHONY : MFF
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+MFF/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/build
+.PHONY : MFF/fast
 
 src/Video.o: src/Video.c.o
 .PHONY : src/Video.o
 
 # target to build an object file
 src/Video.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Video.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.o
 .PHONY : src/Video.c.o
 
 src/Video.i: src/Video.c.i
@@ -142,7 +187,7 @@ src/Video.i: src/Video.c.i
 
 # target to preprocess a source file
 src/Video.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Video.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.i
 .PHONY : src/Video.c.i
 
 src/Video.s: src/Video.c.s
@@ -150,7 +195,7 @@ src/Video.s: src/Video.c.s
 
 # target to generate assembly for a file
 src/Video.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Video.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.s
 .PHONY : src/Video.c.s
 
 src/VideoData.o: src/VideoData.c.o
@@ -158,7 +203,7 @@ src/VideoData.o: src/VideoData.c.o
 
 # target to build an object file
 src/VideoData.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.o
 .PHONY : src/VideoData.c.o
 
 src/VideoData.i: src/VideoData.c.i
@@ -166,7 +211,7 @@ src/VideoData.i: src/VideoData.c.i
 
 # target to preprocess a source file
 src/VideoData.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.i
 .PHONY : src/VideoData.c.i
 
 src/VideoData.s: src/VideoData.c.s
@@ -174,7 +219,7 @@ src/VideoData.s: src/VideoData.c.s
 
 # target to generate assembly for a file
 src/VideoData.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/VideoData.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.s
 .PHONY : src/VideoData.c.s
 
 src/Window.o: src/Window.c.o
@@ -182,7 +227,7 @@ src/Window.o: src/Window.c.o
 
 # target to build an object file
 src/Window.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.o
 .PHONY : src/Window.c.o
 
 src/Window.i: src/Window.c.i
@@ -190,7 +235,7 @@ src/Window.i: src/Window.c.i
 
 # target to preprocess a source file
 src/Window.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.i
 .PHONY : src/Window.c.i
 
 src/Window.s: src/Window.c.s
@@ -198,7 +243,7 @@ src/Window.s: src/Window.c.s
 
 # target to generate assembly for a file
 src/Window.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Window.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.s
 .PHONY : src/Window.c.s
 
 src/main.o: src/main.c.o
@@ -206,7 +251,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -214,7 +259,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -222,7 +267,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -232,8 +277,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... main"
+	@echo "... MFF"
 	@echo "... src/Video.o"
 	@echo "... src/Video.i"
 	@echo "... src/Video.s"
