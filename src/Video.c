@@ -287,6 +287,9 @@ int VideoMain(WindowData *window, char filepath[]){
 	GstStateChangeReturn ret;
 	GstBus *bus;
 	
+	//char *cpy = "cp /home/lascelle/Videos/Sample2.mp4 .";
+
+	//system(cpy);
 
 	window->VideoBox= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding
 	window->VideoInfo= gtk_box_new(GTK_ORIENTATION_HORIZONTAL,10); //Set the box Vertically ... 10 is used for padding

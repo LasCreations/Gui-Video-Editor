@@ -12,7 +12,6 @@ void Destroy(GtkWidget *widget, gpointer data){
 
 void Create(int argc, char **argv){
 
-	
 	WindowData *window = malloc(sizeof(struct WindowData));
 
 	/* Initialize GTK */

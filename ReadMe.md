@@ -16,6 +16,59 @@ If you choose not to do so just simply run the run file.
 
 ## Directory Structure
 
+```
+|-- bin
+	`|-- CMakeCache.txt
+	|-- CMakeFiles
+	|-- cmake_install.cmake
+	|-- install_manifest.txt
+	|-- Makefile
+	|-- MFF
+|-- CMakeLists.txt
+|-- include
+	|-- Audio.h
+	|-- VideoData.h
+	|-- Video.h
+	|-- Widget.h
+	|-- Window.h
+|-- projects
+	|-- ReadMe.txt
+|-- ReadMe.md
+|-- scripts 
+	|-- build.sh
+	|-- configure.sh
+	|-- install.sh
+	|-- run.sh
+|-- src 
+	|-- main.c
+	|-- Video.c
+	|-- VideoData.c
+	`|--Window.c
+```
+
+<!--
+```
+|-- Makefile           <- Project makefile
+|-- README             <- Project README
+|-- bin                <- Compiled binaries
+|   `-- run            <- Project main executable
+|-- build              <- Static objects and intermediate files
+|-- data               <- Project data
+|   |-- raw            <- Raw data
+|   |-- interim        <- Interm data
+|   |-- input          <- Input data
+|   |-- output         <- Output data
+|-- docs               <- Documentation
+|-- include            <- Header files
+|-- lib                <- Dynamic objects
+|-- src                <- Source files
+`-- tests              <- Unit tests
+```
+
+-->
+
+
+
 ## FFmpeg Libraries
 - libavcodec           <-- encoding/decoding library
 - libavfilter          <-- graph-based frame editing library
