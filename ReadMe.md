@@ -20,7 +20,7 @@ To run program ./main
 
 ## Directory Structure
 |--bin                <- Compiled binaries
-|    --Makefile       <- Project makefile
+|   `--Makefile       <- Project makefile
 |    --main           <- Project main executable
 |--config             <- Config files 
 |    --
@@ -30,7 +30,7 @@ To run program ./main
 |--projects           <- Projects folder
 |--ReadMe             <- General readme of the project
 |--src                <- Source files
-|    --
+|    `--
 
 ### Task List
 - [x] Create a Window
