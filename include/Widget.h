@@ -1,3 +1,9 @@
+/*:
+ * @file Widget.h
+ * @author Lascelle Mckenzie
+ * @details 
+*/
+
 #ifndef WIDGET_H
 #define WIDGET_H
 
@@ -19,10 +25,10 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+
 //Error Functions
 #include <errno.h>
 #include <asm-generic/errno-base.h>                                                                                                                   
-
 
 #include <string.h>
 #include <stdlib.h>

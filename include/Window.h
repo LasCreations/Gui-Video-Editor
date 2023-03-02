@@ -1,3 +1,9 @@
+/*:
+ * @file Window.h
+ * @author Lascelle Mckenzie
+ * @details 
+*/
+
 #ifndef WINDOW_H
 #define WINDOW_H
 

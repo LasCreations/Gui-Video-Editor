@@ -1,3 +1,8 @@
+/*:
+ * @file Video.c
+ * @author Lascelle Mckenzie
+ * @details 
+*/
 
 #include "../include/Video.h"
 

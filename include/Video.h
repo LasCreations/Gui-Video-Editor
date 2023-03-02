@@ -1,3 +1,9 @@
+/*:
+ * @file Video.h
+ * @author Lascelle Mckenzie
+ * @details 
+*/
+
 #ifndef VIDEO_H
 #define VIDEO_H
 

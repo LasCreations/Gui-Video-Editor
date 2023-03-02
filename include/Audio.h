@@ -1,3 +1,9 @@
+/*:
+ * @file Audio.h
+ * @author Lascelle Mckenzie
+ * @details 
+*/
+
 #ifndef AUDIO_H
 #define AUDIO_H
 

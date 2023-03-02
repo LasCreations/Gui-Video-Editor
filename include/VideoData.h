@@ -1,3 +1,9 @@
+/*:
+ * @file VideoData.h
+ * @author Lascelle Mckenzie
+ * @details 
+*/
+
 #ifndef VIDEO_DATA_H
 #define VIDEO_DATA_H
 
@@ -15,9 +21,8 @@
 #include <stdbool.h>
 
 
+
 char* GetData(char*);
-
-
 
 #endif
 

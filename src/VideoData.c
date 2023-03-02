@@ -1,3 +1,8 @@
+/*:
+ * @file VideoData.c
+ * @author Lascelle Mckenzie
+ * @details 
+*/
 
 #include "../include/VideoData.h"
 
