@@ -3,8 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "-O3 -Wall")
 
-#Motion Film Lab
-project(MFF C CXX)
+project(MFL C CXX)
 
 file(GLOB SOURCE_FILES 
 	"${PROJECT_SOURCE_DIR}/src/*.c"
