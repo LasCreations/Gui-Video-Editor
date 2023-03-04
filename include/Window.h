@@ -1,29 +1,20 @@
-/*:
+/*
  * @file Window.h
  * @author Lascelle Mckenzie
- * @details 
+ * @details File containing the definition and usage for Window API
 */
+
 
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <gtk/gtk.h>
 
-#include "../include/Widget.h"
-#include "../include/Video.h"
+#include "MenuBar.h"
+#include "Toolbar.h"
 
-void Destroy(GtkWidget*,gpointer);
-
-void Construct(WindowData*);
 
 void Create(int,char**);
-
-void FileChooser(GtkWidget*, WindowData*);
-
-void NewProject(GtkWidget*, WindowData*);
-
-void create_button_clicked(GtkWidget*, WindowData*);
-
-void cancel_button_clicked(GtkWidget*, WindowData*);
-
+void Destroy(GtkWidget*,gpointer);
 
 #endif

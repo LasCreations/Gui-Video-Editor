@@ -162,72 +162,72 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MFF
+# Target rules for targets named MFL
 
 # Build rule for target.
-MFF: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MFF
-.PHONY : MFF
+MFL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MFL
+.PHONY : MFL
 
 # fast build rule for target.
-MFF/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/build
-.PHONY : MFF/fast
+MFL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/build
+.PHONY : MFL/fast
 
-src/Video.o: src/Video.c.o
-.PHONY : src/Video.o
-
-# target to build an object file
-src/Video.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.o
-.PHONY : src/Video.c.o
-
-src/Video.i: src/Video.c.i
-.PHONY : src/Video.i
-
-# target to preprocess a source file
-src/Video.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.i
-.PHONY : src/Video.c.i
-
-src/Video.s: src/Video.c.s
-.PHONY : src/Video.s
-
-# target to generate assembly for a file
-src/Video.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Video.c.s
-.PHONY : src/Video.c.s
-
-src/VideoData.o: src/VideoData.c.o
-.PHONY : src/VideoData.o
+src/MenuBar.o: src/MenuBar.c.o
+.PHONY : src/MenuBar.o
 
 # target to build an object file
-src/VideoData.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.o
-.PHONY : src/VideoData.c.o
+src/MenuBar.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/MenuBar.c.o
+.PHONY : src/MenuBar.c.o
 
-src/VideoData.i: src/VideoData.c.i
-.PHONY : src/VideoData.i
+src/MenuBar.i: src/MenuBar.c.i
+.PHONY : src/MenuBar.i
 
 # target to preprocess a source file
-src/VideoData.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.i
-.PHONY : src/VideoData.c.i
+src/MenuBar.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/MenuBar.c.i
+.PHONY : src/MenuBar.c.i
 
-src/VideoData.s: src/VideoData.c.s
-.PHONY : src/VideoData.s
+src/MenuBar.s: src/MenuBar.c.s
+.PHONY : src/MenuBar.s
 
 # target to generate assembly for a file
-src/VideoData.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/VideoData.c.s
-.PHONY : src/VideoData.c.s
+src/MenuBar.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/MenuBar.c.s
+.PHONY : src/MenuBar.c.s
+
+src/ToolBar.o: src/ToolBar.c.o
+.PHONY : src/ToolBar.o
+
+# target to build an object file
+src/ToolBar.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ToolBar.c.o
+.PHONY : src/ToolBar.c.o
+
+src/ToolBar.i: src/ToolBar.c.i
+.PHONY : src/ToolBar.i
+
+# target to preprocess a source file
+src/ToolBar.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ToolBar.c.i
+.PHONY : src/ToolBar.c.i
+
+src/ToolBar.s: src/ToolBar.c.s
+.PHONY : src/ToolBar.s
+
+# target to generate assembly for a file
+src/ToolBar.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ToolBar.c.s
+.PHONY : src/ToolBar.c.s
 
 src/Window.o: src/Window.c.o
 .PHONY : src/Window.o
 
 # target to build an object file
 src/Window.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/Window.c.o
 .PHONY : src/Window.c.o
 
 src/Window.i: src/Window.c.i
@@ -235,7 +235,7 @@ src/Window.i: src/Window.c.i
 
 # target to preprocess a source file
 src/Window.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/Window.c.i
 .PHONY : src/Window.c.i
 
 src/Window.s: src/Window.c.s
@@ -243,7 +243,7 @@ src/Window.s: src/Window.c.s
 
 # target to generate assembly for a file
 src/Window.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/Window.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/Window.c.s
 .PHONY : src/Window.c.s
 
 src/main.o: src/main.c.o
@@ -251,7 +251,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -259,7 +259,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -267,7 +267,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFF.dir/build.make CMakeFiles/MFF.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -282,13 +282,13 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... MFF"
-	@echo "... src/Video.o"
-	@echo "... src/Video.i"
-	@echo "... src/Video.s"
-	@echo "... src/VideoData.o"
-	@echo "... src/VideoData.i"
-	@echo "... src/VideoData.s"
+	@echo "... MFL"
+	@echo "... src/MenuBar.o"
+	@echo "... src/MenuBar.i"
+	@echo "... src/MenuBar.s"
+	@echo "... src/ToolBar.o"
+	@echo "... src/ToolBar.i"
+	@echo "... src/ToolBar.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"

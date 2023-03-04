@@ -44,6 +44,12 @@ You can now search for MFL in your system or type and run MFL in your terminal t
 	|-- Widget.h
 	|-- Window.h
 |-- projects
+	|-- ProjectName
+		|-- build
+		|-- Imports
+			|-- Audio
+			|-- Images
+			|-- Video
 	|-- ReadMe.txt
 |-- ReadMe.md                             <- Project README
 |-- scripts 
@@ -68,4 +74,3 @@ You can now search for MFL in your system or type and run MFL in your terminal t
 - libswresample        <-- audio resampling, format conversion and mixing
 - libpostproc          <-- post processing library
 - libswscale           <-- color conversion and scaling library
-
