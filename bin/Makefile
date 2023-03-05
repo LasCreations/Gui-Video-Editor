@@ -174,6 +174,30 @@ MFL/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/build
 .PHONY : MFL/fast
 
+src/ImportDialog.o: src/ImportDialog.c.o
+.PHONY : src/ImportDialog.o
+
+# target to build an object file
+src/ImportDialog.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ImportDialog.c.o
+.PHONY : src/ImportDialog.c.o
+
+src/ImportDialog.i: src/ImportDialog.c.i
+.PHONY : src/ImportDialog.i
+
+# target to preprocess a source file
+src/ImportDialog.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ImportDialog.c.i
+.PHONY : src/ImportDialog.c.i
+
+src/ImportDialog.s: src/ImportDialog.c.s
+.PHONY : src/ImportDialog.s
+
+# target to generate assembly for a file
+src/ImportDialog.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MFL.dir/build.make CMakeFiles/MFL.dir/src/ImportDialog.c.s
+.PHONY : src/ImportDialog.c.s
+
 src/MenuBar.o: src/MenuBar.c.o
 .PHONY : src/MenuBar.o
 
@@ -283,6 +307,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... MFL"
+	@echo "... src/ImportDialog.o"
+	@echo "... src/ImportDialog.i"
+	@echo "... src/ImportDialog.s"
 	@echo "... src/MenuBar.o"
 	@echo "... src/MenuBar.i"
 	@echo "... src/MenuBar.s"

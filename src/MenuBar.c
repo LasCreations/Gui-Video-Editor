@@ -69,9 +69,14 @@ void AddMenuBar(GtkWidget *MainBox, GtkWidget *MainWindow){
 
   	//Onclick Quit 
 	//g_signal_connect_swapped (G_OBJECT(menubar->QuitMi), "activate", G_CALLBACK (gtk_widget_destroy), menubar->MainWindow);
-
-  	//Onclick Import
-  	//g_signal_connect(G_OBJECT(menubar->ImportMi), "activate", G_CALLBACK(FileChooser), menubar);
+	
+	char *filepath = NULL;
+  	g_signal_connect(G_OBJECT(menubar->ImportMi), "activate", G_CALLBACK(GetFilePath), filepath);
+	
+	if(filepath!=NULL)
+		g_print(filepath);
+		
+  	//g_signal_connect(G_OBJECT(menubar->ImportMi), "activate", G_CALLBACK(GetFilePath), NULL);
   	//g_signal_connect(G_OBJECT(menubar->NewMi), "activate", G_CALLBACK(NewProject), menubar);
 
 }

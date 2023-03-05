@@ -9,6 +9,8 @@
 
 #include <gtk/gtk.h>
 
+#include "ImportDialog.h"
+
 #include <stdbool.h>
 #include <stdio.h>
 

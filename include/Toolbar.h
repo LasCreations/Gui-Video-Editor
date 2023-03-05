@@ -13,8 +13,10 @@ typedef struct Toolbar{
 	
 	GtkToolItem *newTb;
 	GtkToolItem *openTb;
+
 	GtkToolItem *saveTb;
 	GtkToolItem *sep;
+	
 	GtkToolItem *exitTb;
 
 }Toolbar;
