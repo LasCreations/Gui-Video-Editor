@@ -4,7 +4,7 @@
 void AddMenuBar(GtkWidget *MainBox, GtkWidget *MainWindow){
 	MenuBar *menubar;
 
-	menubar->MenuBarBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10); 
+	menubar->MenuBarBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,1); 
 
 	gtk_box_pack_start(GTK_BOX(MainBox),menubar->MenuBarBox, FALSE, FALSE, 0);
 

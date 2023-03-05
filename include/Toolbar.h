@@ -13,12 +13,13 @@ typedef struct Toolbar{
 	
 	GtkToolItem *newTb;
 	GtkToolItem *openTb;
-
 	GtkToolItem *saveTb;
+	GtkToolItem *undoTb;
+	GtkToolItem *redoTb;
+	
 	GtkToolItem *sep;
 	
 	GtkToolItem *exitTb;
-
 }Toolbar;
 
 void AddToolBar(GtkWidget *MainBox, GtkWidget *MainWindow);

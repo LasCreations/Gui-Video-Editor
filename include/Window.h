@@ -12,7 +12,7 @@
 
 #include "MenuBar.h"
 #include "Toolbar.h"
-
+#include "SourcePanel.h"
 
 void Create(int,char**);
 void Destroy(GtkWidget*,gpointer);

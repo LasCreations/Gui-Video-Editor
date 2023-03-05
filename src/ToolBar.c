@@ -9,10 +9,18 @@ void AddToolBar(GtkWidget *MainBox, GtkWidget *MainWindow){
   
   	gtk_toolbar_set_style(GTK_TOOLBAR(TBar->toolbar), GTK_TOOLBAR_ICONS);
 
-  	TBar->newTb = gtk_tool_button_new (gtk_image_new_from_icon_name("window-new", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
-  	
-	//gtk_tool_item_set_tooltip_markup (TBar->newTb, "Open another one of these windows");
-  	//gtk_toolbar_insert (GTK_TOOLBAR (TBar->toolbar), TBar->newTb, -1);
+	TBar->openTb = gtk_tool_button_new (gtk_image_new_from_icon_name("document-open", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
+	TBar->saveTb = gtk_tool_button_new (gtk_image_new_from_icon_name("document-save", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
+	TBar->undoTb = gtk_tool_button_new (gtk_image_new_from_icon_name("edit-undo", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
+	TBar->redoTb = gtk_tool_button_new (gtk_image_new_from_icon_name("edit-redo", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
+
+  	//TBar->newTb = gtk_tool_button_new (gtk_image_new_from_icon_name("window-new", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
+  	//gtk_tool_item_set_tooltip_markup (TBar->newTb, "Open another one of these windows");
+
+  	gtk_toolbar_insert(GTK_TOOLBAR (TBar->toolbar), TBar->openTb, -1);
+  	gtk_toolbar_insert(GTK_TOOLBAR (TBar->toolbar), TBar->saveTb, -1);
+  	gtk_toolbar_insert(GTK_TOOLBAR (TBar->toolbar), TBar->undoTb, -1);
+  	gtk_toolbar_insert(GTK_TOOLBAR (TBar->toolbar), TBar->redoTb, -1);
 
   	//TBar->sep = gtk_separator_tool_item_new();
   	//gtk_toolbar_insert(GTK_TOOLBAR(TBar->toolbar), TBar->sep, -1);

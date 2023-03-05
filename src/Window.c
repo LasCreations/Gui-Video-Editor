@@ -5,13 +5,16 @@ void Destroy(GtkWidget *widget, gpointer data){
 }
 
 void Create(int argc, char **argv){
-	gtk_init(&argc, &argv);
+	//gtk_init(&argc, &argv);
 	
 	GtkWidget *MainWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	
-	GtkWidget *MainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10);
+	GtkWidget *MainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,1);
+	
+	GtkWidget *ProjectVideoBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,1);
 
-	gtk_window_set_title(GTK_WINDOW(MainWindow), "Video-Editor");
+	gtk_window_set_title(GTK_WINDOW(MainWindow), "Motion Film Lab");
+	
 	gtk_window_maximize(GTK_WINDOW(MainWindow));
 
 	const gchar *authors[] = {"ad Chi", NULL};
@@ -33,6 +36,10 @@ void Create(int argc, char **argv){
 	AddMenuBar(MainBox, MainWindow);
 	
 	AddToolBar(MainBox, MainWindow);
+
+	gtk_box_pack_start(GTK_BOX(MainBox), ProjectVideoBox, FALSE, FALSE, 0);		
+
+	AddSourcePanel(ProjectVideoBox,MainWindow);
 
 	g_signal_connect(G_OBJECT(MainWindow), "destroy", G_CALLBACK(Destroy), NULL);
 
