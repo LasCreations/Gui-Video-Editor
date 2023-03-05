@@ -3,4 +3,4 @@ bin/CMakeFiles
 bin/cmake_install.cmake  
 bin/MFL 
 bin/install_manifest.txt
-bin/MakeFile
+bin/Makefile
