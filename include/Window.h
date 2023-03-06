@@ -14,7 +14,7 @@
 #include "Toolbar.h"
 #include "SourcePanel.h"
 
-void Create(int,char**);
+void Create();
 void Destroy(GtkWidget*,gpointer);
 
 #endif

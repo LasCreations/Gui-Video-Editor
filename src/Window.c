@@ -4,9 +4,12 @@ void Destroy(GtkWidget *widget, gpointer data){
 	gtk_main_quit();
 }
 
-void Create(int argc, char **argv){
-	//gtk_init(&argc, &argv);
+void Create(){
+
 	
+
+
+
 	GtkWidget *MainWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	
 	GtkWidget *MainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,1);
