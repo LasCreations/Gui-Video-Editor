@@ -10,6 +10,8 @@
 #include <gtk/gtk.h>
 
 #include "ImportDialog.h"
+#include "SaveDialog.h"
+
 
 #include <stdbool.h>
 #include <stdio.h>

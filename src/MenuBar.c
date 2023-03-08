@@ -72,6 +72,7 @@ void AddMenuBar(GtkWidget *MainBox, GtkWidget *MainWindow){
 	
 	char *filepath = NULL;
   	g_signal_connect(G_OBJECT(menubar->ImportMi), "activate", G_CALLBACK(GetFilePath), filepath);
+  	g_signal_connect(G_OBJECT(menubar->SaveAsMi), "activate", G_CALLBACK(ActivateSaveDialog), NULL);
 	
 	if(filepath!=NULL)
 		g_print(filepath);
