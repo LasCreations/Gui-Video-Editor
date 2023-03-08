@@ -22,7 +22,7 @@ After this is done run the command:
 ```
 sudo ./install
 ```
-This will install the build file to /usr/bin/. 
+This will install the build file to /usr/local/bin/ . 
 
 You can now search for MFL in your system or type and run MFL in your terminal to start the program.
 
