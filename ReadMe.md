@@ -1,5 +1,5 @@
 # Motion Film Lab
-Motion Film Lab is an open source GUI Video Editor.
+Motion Film Lab is an open source GUI Video Editor, which is entirely written in C.
 
 > NOTE: Motion Film Lab is currently under active development.
 
@@ -22,10 +22,16 @@ After this is done run the command:
 ```
 sudo ./install
 ```
-
 This will install the build file to /usr/bin/. 
 
 You can now search for MFL in your system or type and run MFL in your terminal to start the program.
+
+
+## How To Uninstall 
+In the scripts folder, run the command:
+```
+sudo ./uninstall
+```
 
 ## Directory Structure
 ```
@@ -39,10 +45,15 @@ You can now search for MFL in your system or type and run MFL in your terminal t
 |-- CMakeLists.txt
 |-- include                               <- Header files
 	|-- Audio.h
-	|-- VideoData.h
 	|-- Video.h
-	|-- Widget.h
+	|-- Image.h
 	|-- Window.h
+	|-- DecodeVideo.h
+	|-- ImportDialog.h
+	|-- MenuBar.h
+	|-- SaveDialog.h
+	|-- SourcePanel.h
+	|-- Toolbar.h
 |-- projects
 	|-- ProjectName
 		|-- build
@@ -58,14 +69,22 @@ You can now search for MFL in your system or type and run MFL in your terminal t
 	|-- install.sh
 	|-- add_dependencies.sh
 	|-- run.sh
+	|-- uninstall.sh
 |-- src                                   <- Source files
-	|-- main.c
+	|-- Audio.c
 	|-- Video.c
-	|-- VideoData.c
+	|-- Image.c
 	|-- Window.c
+	|-- DecodeVideo.c
+	|-- ImportDialog.c
+	|-- MenuBar.c
+	|-- SaveDialog.c
+	|-- SourcePanel.c
+	|-- Toolbar.c
+	|-- main.c
 ```
 
-## FFmpeg Libraries
+## FFmpeg Libraries Used
 - libavcodec           <-- encoding/decoding library
 - libavfilter          <-- graph-based frame editing library
 - libavformat          <-- I/O and muxing/demuxing library

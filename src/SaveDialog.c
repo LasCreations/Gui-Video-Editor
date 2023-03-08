@@ -14,6 +14,17 @@ void ActivateSaveDialog(GtkWidget *window, gpointer user_data){
 		filename = gtk_file_chooser_get_filename (chooser);
 		g_print(filename);
 		g_free (filename);
+
+		//Check if error occured
+		if(mkdir(filename, S_IRWXU | S_IRWXG | S_IRWXO) == -1){
+			//Error Creating folder
+			perror("Error");
+			if(errno == EEXIST){
+				//Folder Already Exists
+				//Make a default Folder
+				g_print("Created a folder called Default Folder");
+			}
+		}
 	}
 	gtk_widget_destroy (FileChooserDialog);
 
