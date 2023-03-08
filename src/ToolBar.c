@@ -3,10 +3,9 @@
 
 void AddToolBar(GtkWidget *MainBox, GtkWidget *MainWindow){
 	Toolbar *TBar;
+
   	TBar->ToolBarBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,10);
-  
-  	TBar->toolbar = gtk_toolbar_new();
-  
+  	TBar->toolbar = gtk_toolbar_new(); 
   	gtk_toolbar_set_style(GTK_TOOLBAR(TBar->toolbar), GTK_TOOLBAR_ICONS);
 
 	TBar->openTb = gtk_tool_button_new (gtk_image_new_from_icon_name("document-open", GTK_ICON_SIZE_SMALL_TOOLBAR), NULL);
@@ -33,7 +32,6 @@ void AddToolBar(GtkWidget *MainBox, GtkWidget *MainWindow){
   	//g_signal_connect (TBar->newTb, "clicked", G_CALLBACK (on_prompt_clicked), MainWindow);
 }
 
-void on_prompt_clicked(GtkWidget *MainBox, gpointer user_data){
-	
+void on_prompt_clicked(GtkWidget *MainBox, gpointer user_data){	
   	gtk_main_quit();
 }

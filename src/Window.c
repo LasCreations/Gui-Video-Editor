@@ -6,21 +6,29 @@ void Destroy(GtkWidget *widget, gpointer data){
 
 void Create(){
 
-	
-
-
-
 	GtkWidget *MainWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	
 	GtkWidget *MainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,1);
 	
-	GtkWidget *ProjectVideoBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,1);
+	GtkWidget *ProjectVideoBox = gtk_box_new(GTK_ORIENTATION_VERTICAL,1);
 
 	gtk_window_set_title(GTK_WINDOW(MainWindow), "Motion Film Lab");
 	
 	gtk_window_maximize(GTK_WINDOW(MainWindow));
 
-	const gchar *authors[] = {"ad Chi", NULL};
+	gtk_container_add(GTK_CONTAINER(MainWindow),MainBox);
+
+	AddMenuBar(MainBox, MainWindow);
+
+	AddToolBar(MainBox, MainWindow);
+
+	gtk_box_pack_start(GTK_BOX(MainBox), ProjectVideoBox, FALSE, FALSE, 0);		
+
+	AddSourcePanel(ProjectVideoBox,MainWindow);
+
+
+	const gchar *authors[] = {"Lascelle Mckenzie", NULL};
+
 	gtk_show_about_dialog(GTK_WINDOW(MainWindow),
                     "program-name", "jjkjk",
                     "version", "0.0.1",
@@ -34,15 +42,6 @@ void Create(){
                     "title", "About kj kj",
                     NULL);
 
-	gtk_container_add(GTK_CONTAINER(MainWindow),MainBox);
-
-	AddMenuBar(MainBox, MainWindow);
-	
-	AddToolBar(MainBox, MainWindow);
-
-	gtk_box_pack_start(GTK_BOX(MainBox), ProjectVideoBox, FALSE, FALSE, 0);		
-
-	AddSourcePanel(ProjectVideoBox,MainWindow);
 
 	g_signal_connect(G_OBJECT(MainWindow), "destroy", G_CALLBACK(Destroy), NULL);
 

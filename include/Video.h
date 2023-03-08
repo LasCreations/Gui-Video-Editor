@@ -20,6 +20,7 @@
 #include <gdk/gdkquartz.h>
 #endif
 
+#include "DecodeVideo.h"
 
 /* Structure to contain all our information, so we can pass it around */
 typedef struct CustomData {
@@ -31,6 +32,8 @@ typedef struct CustomData {
 	gint64 duration;                /* Duration of the clip, in nanoseconds */
 }CustomData;
 
+
+void Encode_Audio();
 
 /*The Video Function
  * Take the path of the video, The video screen and the window screen
@@ -67,7 +70,7 @@ void slider_cb (GtkRange *range, CustomData *data);
 void create_ui (CustomData *data, GtkWidget *window, GtkWidget *VideoBox);
 
 /* This function is called periodically to refresh the GUI */
-//gboolean refresh_ui (CustomData *data);
+gboolean refresh_ui (CustomData *data);
 
 /* This function is called when new metadata is discovered in the stream */
 void tags_cb (GstElement *playbin, gint stream, CustomData *data);
