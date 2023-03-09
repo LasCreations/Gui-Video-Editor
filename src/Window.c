@@ -26,7 +26,6 @@ void Create(){
 
 	AddSourcePanel(ProjectVideoBox,MainWindow);
 
-
 	const gchar *authors[] = {"Lascelle Mckenzie", NULL};
 
 	gtk_show_about_dialog(GTK_WINDOW(MainWindow),

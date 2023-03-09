@@ -7,7 +7,8 @@
 #include "../include/Video.h"
 
 
-int VideoMain(GtkWidget *window, GtkWidget *VideoBox, char filepath[]){ 
+void SetData(GtkWidget *window, GtkWidget *VideoBox, char filepath[]){ 
 	//DecodeVideo("/home/lascelle/Videos/Sample2.mp4");
 	//Remuxing("/home/lascelle/Videos/Sample2.mp4", "test.mkv");
+	VideoMain(window, VideoBox, "file:///home/lascelle/Videos/Sample.mp4");
 }
